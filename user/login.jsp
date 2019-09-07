@@ -1,55 +1,71 @@
-<%@include file="conn.jsp"%>
-<%
-	
-	String sub = request.getParameter("sub");
-	
+<!--A Design by W3layouts
+   Author: W3layout
+   Author URL: http://w3layouts.com
+   License: Creative Commons Attribution 3.0 Unported
+   License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+   <title>Toys Shop an Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+   <!--meta tags -->
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="keywords" content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+   <%@include file="js_script.jsp"%>
+   <!--//meta tags ends here-->
+   <%@include file="css.jsp"%>
 
+</head>
+<style type="text/css">
+   .toppadding{
+      padding-top: 80px;
+   }
+</style>
+<body>
+   <div class="header-outs" id="home">
+      <div class="header-bar">
+         <%@include file="topbar.jsp"%>
+         <%@include file="menu.jsp"%>
+      </div>
+   </div>
 
-	if(sub!=null)
-	{
-		String unm = request.getParameter("unm");
-		String pass = request.getParameter("pass");
-
-		ps = con.prepareStatement("select * from reg where uname='"+unm+"' and pass ='"+pass+"'");
-		//ps.setString(1,unm);
-		//ps.setString(2,pass);
-		//out.println("name"+unm+"passss"+pass);
-		rs = ps.executeQuery();
-		if(rs.next())
-		{
-			
-			session.setAttribute("uid",rs.getString(1));							
-			response.sendRedirect("profile.jsp");
-		}
-		else
-		{
-				out.println("<script>alert('Enter Correct User or Password')</script>");
-		}		
-	}	
-	
-%>
-<html>
-	<head>
-	<title></title>
-	</head>
-	<body>
-	<h1 align="Center">Login Form</h1> 
-	<form>
-		<table align="center" border="1">
-		<tr>
-		<td>User</td>
-		<td><input type="text" name="unm"></td>
-		</tr>
-		<tr>
-		<td>Password</td>
-		<td><input type="password" name="pass"></td>
-		</tr>
-		
-		<tr>
-			<td colspan="2" align="center"><input type="submit" name="sub" value="LogIn">
-		</tr>
-		</table>
-		
-	</form>
-	</body>
+   <!--Login-->
+   <div class="toppadding">
+   <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+              <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button> -->
+            </div>
+            <div class="modal-body">
+               <div class="register-form">
+                  <form action="#" method="post">
+                     <div class="fields-grid">
+                        <div class="styled-input">
+                           <input type="text" placeholder="Your Name" name="Your Name" required="">
+                        </div>
+                        <div class="styled-input">
+                           <input type="email" placeholder="Your Email" name="Your Email" required="">
+                        </div>
+                        <div class="styled-input">
+                           <input type="password" placeholder="password" name="password" required="">
+                        </div>
+                        <button type="submit" class="btn subscrib-btnn">Login</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" ata-dismiss="modal"><a href="register.jsp">Register</a></button>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+</body>
 </html>
