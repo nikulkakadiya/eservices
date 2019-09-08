@@ -6,7 +6,7 @@ if(name==null)
 	{
 		response.sendRedirect("index.jsp");
 	}
-	%>
+%>
 	<!DOCTYPE html>
 	<html>
 	<head>

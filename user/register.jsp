@@ -2,9 +2,9 @@
 <%
 
 
-   String sub = request.getParameter("sub");
-   
-   if(sub!=null)
+String sub = request.getParameter("sub");
+
+if(sub!=null)
    {
       String mobileno = request.getParameter("mobileno");
       String password = request.getParameter("password");      
@@ -33,7 +33,7 @@
       }
    }
    
-%>
+   %>
 <!--A Design by W3layouts
    Author: W3layout
    Author URL: http://w3layouts.com
@@ -95,23 +95,31 @@
                               <input type="number" placeholder="Your Email" name="num" required="">
                            </div>   -->
                            
-                          <div class="dropdown">
-                             <select name = "usertype">
-                              <option value = "2">Customer</option>
-                              <option value = "3">Service Provider</option>
-                           </select>
-                        </div>                        
-                        <button type="submit" name="sub" class="btn subscrib-btnn">Register</button>
-                     </div>                       
-                  </form>
+                           <div class="dropdown">
+                            <select name = "usertype">
+                              <%
+                              ps = con.prepareStatement("select * from user_type where id !=1");
+                              rs = ps.executeQuery();       
+                              while(rs.next())
+                                 {
+                                    %>
+                                    <option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
+                                    <%
+                                 }
+                                 %>
+                              </select>
+                           </div>                        
+                           <button type="submit" name="sub" class="btn subscrib-btnn">Register</button>
+                        </div>                       
+                     </form>
+                  </div>
                </div>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="login.jsp">Log-In</a></button>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="login.jsp">Log-In</a></button>
+               </div>
             </div>
          </div>
       </div>
    </div>
-</div>
 </body>
 </html>

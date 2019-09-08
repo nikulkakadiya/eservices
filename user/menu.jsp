@@ -5,24 +5,24 @@
    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav ">
          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
          </li>
          <li class="nav-item">
-            <a href="about.html" class="nav-link">About</a>
+            <a href="about.jsp" class="nav-link">About</a>
          </li>
          <li class="nav-item">
-            <a href="service.html" class="nav-link">Service</a>
+            <a href="service.jsp" class="nav-link">Service</a>
          </li>
          <li class="nav-item">
-            <a href="shop.html" class="nav-link">Shop Now</a>
+            <a href="shop.jsp" class="nav-link">Shop Now</a>
          </li>
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Pages
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <a class="nav-link" href="icon.html">404 Page</a>
-               <a class="nav-link " href="typography.html">Typography</a>
+               <a class="nav-link" href="icon.jsp">404 Page</a>
+               <a class="nav-link " href="typography.jsp">Typography</a>
             </div>
          </li>
          <li class="nav-item dropdown">
@@ -39,10 +39,24 @@
          <li class="nav-item">
             <a href="contact.jsp" class="nav-link">Contact</a>
          </li>
-
+         <%
+             if(session.getAttribute("name")!=null)
+            {
+         %>
          <li class="nav-item">
-            <a href="login.jsp" class="nav-link">Login</a>
+            <a href="logout.jsp" class="nav-link">Log-Out</a>
          </li>
+         <%
+            }
+            else
+            {
+         %>
+         <li class="nav-item">
+            <a href="login.jsp" class="nav-link">Log-in</a>
+         </li>
+         <%
+            }
+         %>
       </ul>
    </div>
 </nav>

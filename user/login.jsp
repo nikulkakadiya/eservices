@@ -1,3 +1,39 @@
+<%@include file="connection.jsp"%>
+<%
+
+String login = request.getParameter("login");
+
+
+   //int mobile_no=null;
+if(login!=null)
+   {
+      // name=Character.parseChar(request.getParameter("name"));
+      String mobileno = request.getParameter("mobileno").toString();
+      
+      String password = request.getParameter("password");
+      String usertype = request.getParameter("usertype");
+
+      ps = con.prepareStatement("select * from user where password = ? && mobile_no = ? && user_type_id=?");
+
+      ps.setString(1,password);
+      ps.setString(2,mobileno);
+      ps.setString(3,usertype);
+      
+      rs = ps.executeQuery();
+      if(rs.next())
+      {
+         
+         session.setAttribute("name",rs.getString(3));
+         //session.setAttribute("password",rs.getString(2));            
+         response.sendRedirect("service.jsp");
+      }
+      else
+      {
+         out.println("<script>alert('Enter Correct User or Password')</script>");
+      }     
+   }  
+   
+   %>
 <!--A Design by W3layouts
    Author: W3layout
    Author URL: http://w3layouts.com
@@ -47,15 +83,26 @@
                   <form action="#" method="post">
                      <div class="fields-grid">
                         <div class="styled-input">
-                           <input type="text" placeholder="Your Name" name="Your Name" required="">
-                        </div>
-                        <div class="styled-input">
-                           <input type="email" placeholder="Your Email" name="Your Email" required="">
-                        </div>
+                           <input type="text" placeholder="Your Mobile Number" name="mobileno" required="">
+                        </div>                        
                         <div class="styled-input">
                            <input type="password" placeholder="password" name="password" required="">
                         </div>
-                        <button type="submit" class="btn subscrib-btnn">Login</button>
+                        <div class="dropdown">
+                            <select name = "usertype">
+                              <%
+                              ps = con.prepareStatement("select * from user_type where id !=1");
+                              rs = ps.executeQuery();       
+                              while(rs.next())
+                                 {
+                                    %>
+                                    <option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
+                                    <%
+                                 }
+                                 %>
+                              </select>
+                           </div>                        
+                        <button name="login" type="submit" class="btn subscrib-btnn">Login</button>
                      </div>
                   </form>
                </div>
