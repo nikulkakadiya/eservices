@@ -12,7 +12,7 @@ if(sub!=null)
 		//char[] mobile_no=name.toCharArray();
 		String password = request.getParameter("password");
 
-		ps = con.prepareStatement("select * from user where password = ? && mobile_no = ?");
+		ps = con.prepareStatement("select * from user where password = ? && mobile_no = ? && user_type_id=1");
 
 		ps.setString(1,password);
 		ps.setString(2,mobileNo);
@@ -21,7 +21,7 @@ if(sub!=null)
 		if(rs.next())
 		{
 			
-			session.setAttribute("name",rs.getString(3));
+			session.setAttribute("admin_name",rs.getString(3));
 			//session.setAttribute("password",rs.getString(2));				
 			response.sendRedirect("home.jsp");
 		}

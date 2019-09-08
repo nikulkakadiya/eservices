@@ -195,7 +195,7 @@
 		
 		<%
 		
-		String nam=(String)session.getAttribute("name");
+		String nam=(String)session.getAttribute("admin_name");
 		out.println(nam);
 		
 		%></span>

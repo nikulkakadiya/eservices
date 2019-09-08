@@ -1,12 +1,4 @@
-<%@include file="connection.jsp"%>
-<%
-String name=(String) session.getAttribute("name");
-
-if(name==null)
-	{
-		response.sendRedirect("index.jsp");
-	}
-%>
+<%@include file="check_login.jsp"%>
 	<!DOCTYPE html>
 	<html>
 	<head>
