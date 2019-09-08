@@ -15,7 +15,7 @@ int maxFileSize = 5000 * 1024 * 1024;
 int maxMemSize = 5000 * 1024 * 1024;
 String imagePathToSave = "C:\\Program Files\\Apache Software Foundation\\Tomcat 7.0\\webapps\\ROOT\\eservices\\images\\";
 // Path to store in DB
-String imagePath = "http://localhost:8080/eservices/images";
+String imagePath = "http://localhost:8080/eservices/images/";
 
 String contentType = request.getContentType();
 if (contentType!=null && (contentType.indexOf("multipart/form-data") >= 0)) {
