@@ -11,20 +11,21 @@ if(login!=null)
       String mobileno = request.getParameter("mobileno").toString();
       
       String password = request.getParameter("password");
-      String usertype = request.getParameter("usertype");
+      String userTypeId = request.getParameter("usertype");
 
-      ps = con.prepareStatement("select * from user where password = ? && mobile_no = ? && user_type_id=?");
+      ps = con.prepareStatement("select mobile_no, name, email_id, type from user u inner join user_type ut on u.user_type_id = ut.id where password = ? && mobile_no = ? && user_type_id=?");
 
       ps.setString(1,password);
       ps.setString(2,mobileno);
-      ps.setString(3,usertype);
+      ps.setString(3,userTypeId);
       
       rs = ps.executeQuery();
       if(rs.next())
       {
-         
-         session.setAttribute("name",rs.getString(3));
-         //session.setAttribute("password",rs.getString(2));            
+         session.setAttribute("name",rs.getString(2));
+         session.setAttribute("mobile",rs.getString(1));
+         session.setAttribute("email",rs.getString(3));
+         session.setAttribute("userType",rs.getString(4));
          response.sendRedirect("service.jsp");
       }
       else

@@ -1,32 +1,23 @@
 <%@include file="check_login.jsp"%>
-
 <%
+	try{
+	
 
+		String cityId=request.getParameter("city_id");
+		if(cityId != null){	
+			ps = con.prepareStatement("select * from city where id=?");
+			ps.setString(1,cityId);
+			rs = ps.executeQuery();
 
-			String addCity = request.getParameter("add_city");
-			String cityId=request.getParameter("city_id");
-   			String cityName=request.getParameter("city_name");
-	if(addCity!=null)
-   {
+			if(!rs.next()){
+				response.sendRedirect("view_city.jsp");
+			}
+		} 	
 
-   			ps =con.prepareStatement("insert into city(id,name) values(?,?)");
-   			
-		      ps.setString(1,cityId);
-		      ps.setString(2,cityName);
-
-		      int result = ps.executeUpdate();
-		      
-		      if(result == 1)
-		      {
-		         response.sendRedirect("view_city.jsp");
-		      }
-		      else
-		      {
-		        out.println("<script>alert('Record Not Add')</script>");
-		      }
-      
-   }
-   %>
+		
+}
+catch(Exception e){}
+%>
 
 
 
@@ -60,7 +51,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Add Data <small>Add City</small>
+					Add Data <small>Add Service</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-pencil-square-o"></i> Home</a></li>
@@ -68,7 +59,7 @@
 				</ol>
 			</section>
 
-			
+
 			<!-- Main content -->
 			<!-- /.content-wrapper -->
 			<div class="box box-primary">
@@ -77,21 +68,22 @@
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
-				<form role="form">
+
+				<form action="update_city.jsp" method="POST">
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Id</label>
-							<input type="text" class="form-control" name="city_id" placeholder="City Id">
+							<input type="text" class="form-control" name="city_id" placeholder="Id" value="<%=rs.getString(1)%>">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">City</label>
-							<input type="text" class="form-control" name="city_name" placeholder="City">
-						</div>						
+							<input type="text" class="form-control" name="city_name" placeholder="City Name" value="<%=rs.getString(2)%>">
+						</div>					
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button name="add_city" type="submit" class="btn btn-primary">Add</button>
+						<button name="update_city" type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</form>
 			</div>

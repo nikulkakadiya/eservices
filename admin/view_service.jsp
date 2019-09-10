@@ -34,7 +34,7 @@ ps = con.prepareStatement("SELECT s.id,name,description,path FROM service s inne
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard <small>user</small>
+					Dashboard <small>View Service</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
