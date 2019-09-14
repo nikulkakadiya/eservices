@@ -19,33 +19,27 @@
                Account
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <a class="nav-link" href="product.html">Profile</a>
-               <a class="nav-link " href="product.html">Login</a>
-               <a class="nav-link " href="product.html">Log-out</a>
-            </div>
-         </li>
-
-         <%
+               <%
          if(session.getAttribute("name")!=null)
             {
                %>
-               <li class="nav-item">
-                  <a href="contact.jsp" class="nav-link">Profile</a>
-               </li>
-               <li class="nav-item">
+                  <a href="profile.jsp" class="nav-link">Profile</a>
+                  <a href="add_service_skill.jsp" class="nav-link">Add Skill</a>
+                  <a href="view_skill.jsp" class="nav-link">view skill</a>
                   <a href="logout.jsp" class="nav-link">Log-Out</a>
-               </li>
                <%
             }
             else
                {
                   %>
-                  <li class="nav-item">
                      <a href="login.jsp" class="nav-link">Log-in</a>
-                  </li>
                   <%
                }
                %>
+            </div>
+         </li>
+
+        
             </ul>
          </div>
       </nav>

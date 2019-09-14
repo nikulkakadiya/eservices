@@ -16,6 +16,8 @@
 					<li class="active"><a href="user.jsp"><i class="fa fa-circle-o"></i>View User</a></li>				
 					<li class="active"><a href="view_service.jsp"><i class="fa fa-circle-o"></i>View Services</a></li>
 					<li class="active"><a href="view_city.jsp"><i class="fa fa-circle-o"></i>View City</a></li>
+					<li class="active"><a href="view_booking.jsp"><i class="fa fa-circle-o"></i>View Booking</a></li>
+					<li class="active"><a href="view_booking_status.jsp"><i class="fa fa-circle-o"></i>View Booking Status</a></li>
 				</ul>
 			</li>
 			<li class="treeview">

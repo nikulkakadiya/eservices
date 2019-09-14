@@ -1,6 +1,6 @@
 <%@include file="check_login.jsp"%>
 <%
-ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user u inner join user_type ut on u.user_type_id = ut.id inner join user_status us on u.status_id = us.id ");
+ps = con.prepareStatement("select id,service_id,service_provider_id,customer_id,date from booking");
 
 %>
 
@@ -34,11 +34,11 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard <small>User</small>
+					Dashboard <small>View Booking</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">View User</li>
+					<li class="active">View Booking</li>
 				</ol>
 			</section>
 
@@ -61,11 +61,12 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 						<table class="table no-margin">
 							<thead>
 								<tr>
-									<th>Mobile Number</th>
-									<th>Name</th>
-									<th>E-Mail Id</th>
-									<th>Status</th>
-									<th>User Type</th>
+									<th>Id</th>
+									<th>Service Id</th>
+									<th>Service Provider Id</th>
+									<th>Customer Id</th>
+									<th>Date</th>
+									<th>Booking Satus Id</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -80,16 +81,13 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 											<td><%=rs.getString(1)%></td>
 											<td><%=rs.getString(2)%></td>
 											<td><%=rs.getString(3)%></td>
-											<td><span class="label label-success"><%=rs.getString(4)%></span></td>
-											<td><%=rs.getString(5)%></td>
-											<td class="center">
-												<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-													<i class="glyphicon glyphicon-edit icon-white"></i> Edit
-												</button>
-												<a class="btn btn-danger"
-												href="/admin/delete_city?city_id=${city.cityId}"> <i
-												class="glyphicon glyphicon-trash icon-white"></i> Delete
-											</a>
+											<td><%=rs.getString(4)%></td>
+											<td><%=rs.getDate(5)%></td>
+											<td><%=rs.getString(1)%></td>
+											<td class="center">			
+												<a class="btn btn-info"
+												href="edit_booking.jsp?city_id=<%=rs.getString(1)%>"><i class="glyphicon glyphicon-edit icon-white"></i> Edit
+											</a>					
 
 										</td>
 									</tr>

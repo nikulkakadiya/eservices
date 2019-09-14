@@ -1,29 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
 <%@include file="check_login.jsp"%>
-<%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
-<%@ page import="javax.servlet.http.*" %>
-<%@ page import="org.apache.commons.fileupload.*" %>
-<%@ page import="org.apache.commons.fileupload.disk.*" %>
-<%@ page import="org.apache.commons.fileupload.servlet.*" %>
-<%@ page import="org.apache.commons.io.output.*" %>
-
 <%
-String serviceId=request.getParameter("service_id");
-if(serviceId != null){	
-	ps = con.prepareStatement("select s.id,name,description,i.path,s.image_id from service s inner join image i on s.image_id=i.id where s.id=?");
+	try{
+			String cityId=request.getParameter("city_id");
+			if(cityId != null){	
+				ps = con.prepareStatement("select * from city where id=?");
+				ps.setString(1,cityId);
+				rs = ps.executeQuery();
 
-	ps.setString(1,serviceId);
-
-	rs = ps.executeQuery();
-
-		if(!rs.next()){
-			response.sendRedirect("view_service.jsp");
+				if(!rs.next()){
+				response.sendRedirect("view_city.jsp");
+				}
+			} 	
 		}
-} 
-
+		catch(Exception e){}
 %>
-
 
 
 <!DOCTYPE html>
@@ -74,29 +64,20 @@ if(serviceId != null){
 				<!-- /.box-header -->
 				<!-- form start -->
 
-				<form action="edit_services.jsp" method="POST" enctype="multipart/form-data">
+				<form action="update_city.jsp" method="POST">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Service Name</label>
-							<input type="text" class="form-control" name="service_name" placeholder="Service Name" value="<%=rs.getString(2)%>">
+							<input type="hidden" class="form-control" name="city_id" placeholder="Id" value="<%=rs.getString(1)%>">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Description</label>
-							<input type="text" class="form-control" name="description" placeholder="Description" value="<%=rs.getString(3)%>">
-						</div>
-						<div class="form-group">
-							<img src="<%=rs.getString(4)%>" height="40px" width="50px" /><br>
-							<label for="exampleInputFile">Service Image</label>
-							<input type="file" name="service_image">
-
-						</div>
-						<input type="hidden" name="service_id" value="<%=rs.getString(1)%>"/>
-						<input type="hidden" name="image_id" value="<%=rs.getString(5)%>"/>
+							<label for="exampleInputPassword1">City</label>
+							<input type="text" class="form-control" name="city_name" placeholder="City Name" value="<%=rs.getString(2)%>">
+						</div>					
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Update</button>
+						<button name="update_city" type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</form>
 			</div>

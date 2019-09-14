@@ -1,7 +1,7 @@
 <%
-String name=(String) session.getAttribute("name");
+String molile=(String) session.getAttribute("mobile");
 
-if(name==null)
+if(molile==null)
    {
       response.sendRedirect("login.jsp");
    }

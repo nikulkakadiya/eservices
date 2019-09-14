@@ -1,5 +1,41 @@
+<%@ page import="java.io.*,java.util.*" %>
 <%@include file="check_login.jsp"%>
 <%@include file="connection.jsp"%>
+<%
+   
+   String addAddress=request.getParameter("add_address");  
+
+      String addressId = UUID.randomUUID().toString();
+
+      String userId=(String)session.getAttribute("mobile");
+      String line1=request.getParameter("line_1"); 
+      String line2=request.getParameter("line_2"); 
+      String pincode=request.getParameter("pincode"); 
+      String cityId=request.getParameter("city_id"); 
+      String name=request.getParameter("address_name"); 
+
+      ps =con.prepareStatement("insert into address(id,user_id,line_1,line_2,pincode,city_id,name) values(?,?,?,?,?,?,?)");
+      ps.setString(1,addressId);      
+      ps.setString(2,userId);      
+      ps.setString(3,line1);      
+      ps.setString(4,line2);      
+      ps.setString(5,pincode);      
+      ps.setString(6,cityId);      
+      ps.setString(7,name);    
+
+      int result = ps.executeUpdate();
+      
+      if(result == 1)
+      {
+         response.sendRedirect("profile.jsp");
+      }
+      else
+      {
+         out.println("<script>alert('Record Not Add')</script>");
+      }
+   
+
+%>
 <!--A Design by W3layouts
    Author: W3layout
    Author URL: http://w3layouts.com
@@ -77,13 +113,9 @@
 
 <!----top Address-------------->
 
-<%
-String userId=(String)session.getAttribute("mobile");   
-ps = con.prepareStatement("select line_1,line_2,pincode,city_id,a.name,c.name from address a inner join city c on a.city_id=c.id where a.user_id=?");
-ps.setString(1,userId);
-%>
+
 <div class="topaddress">
- <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header">
@@ -95,51 +127,44 @@ ps.setString(1,userId);
             </div>
             <div class="modal-body">
                <div class="register-form">
-                  <form>
+                  <form action="add_address.jsp" method="post">
                      <div class="fields-grid">  
-                        <%
-                        rs=ps.executeQuery();
-                        if(rs.next())
-                           {
-                              %>      
-
+                        
                               <div class="form-group">
                                  <label for="inputAddress">Address 1</label>
-                                 <input type="text" value="<%=rs.getString(1)%>" class="form-control" id="inputAddress" readonly="readonly">
+                                 <input type="text" name="line_1" class="form-control" id="inputAddress">
                               </div>
                               <div class="form-group">
                                  <label for="inputAddress2">Address 2</label>
-                                 <input type="text" value="<%=rs.getString(2)%>" class="form-control" id="inputAddress2" readonly="readonly">
+                                 <input type="text" name="line_2" class="form-control" id="inputAddress2">
                               </div>
                               <div class="form-group col-md-6">
                                  <label for="inputState">City</label>
-                                 <select readonly="readonly" id="inputState" class="form-control">
-                                    <option value="<%=rs.getString(4)%>"><%=rs.getString(6)%></option>                                         </select>
-                                 </div>
+                                 <select id="inputState" name="city_id" class="form-control">
+                                    <option value="1">surat</option>
+                                    <option value="2">Rajkot</option>
+                                    <option value="3">Ahemdabad</option>
+                                    <option value="4">Baroda</option>
+                                 </select>                 
+                                 </div>   
                                  <div class="form-group col-md-6">
                                     <label for="inputZip">Zip</label>
-                                    <input type="text" value="<%=rs.getString(3)%>" class="form-control" id="inputZip" readonly="readonly">
+                                    <input type="text" name="pincode" class="form-control" id="inputZip">
                                  </div>
                                  <div class="form-group">
                                     <label for="inputZip">Name</label>
-                                    <input type="text" value="<%=rs.getString(5)%>" class="form-control" id="inputZip" readonly="readonly">
-                                 </div>
-                                 <div class="col-sm-10">
-                                    <button class="btn btn-primary"><a href="adit_address.jsp">Edit</a></button>
-                                 </div><br>
-                                 <%
-                              }
-                              %>
-                              <div class="col-sm-10">
-                                <button class="btn btn-primary"> <a href="add_address.jsp">Add</a></button>               
-                             </div>                                 
-                          </div>
-                       </form>
-                    </div>
-                 </div>           
-              </div>
-           </div>
-        </div>   
-     </div>
-  </body>
-  </html>
+                                    <input type="text" name="address_name" class="form-control" id="inputZip">
+                                 </div>       
+                        
+                                 <button name="add_address" type="submit" class="btn subscrib-btnn">add</button>
+
+                        </div>
+                     </form>
+                  </div>
+               </div>           
+            </div>
+         </div>
+      </div>   
+   </div>
+</body>
+</html>

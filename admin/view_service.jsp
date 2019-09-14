@@ -38,7 +38,7 @@ ps = con.prepareStatement("SELECT s.id,name,description,path FROM service s inne
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Dashboard</li>
+					<li class="active">View Service</li>
 				</ol>
 			</section>
 

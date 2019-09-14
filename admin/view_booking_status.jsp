@@ -1,6 +1,6 @@
 <%@include file="check_login.jsp"%>
 <%
-ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user u inner join user_type ut on u.user_type_id = ut.id inner join user_status us on u.status_id = us.id ");
+ps = con.prepareStatement("select * from booking_status");
 
 %>
 
@@ -34,11 +34,11 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard <small>User</small>
+					Dashboard <small>View Booking Status</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">View User</li>
+					<li class="active">View Booking Status</li>
 				</ol>
 			</section>
 
@@ -47,7 +47,7 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 			<!-- /.content-wrapper -->
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">User</h3>
+					<h3 class="box-title">Booking Status</h3>
 
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -61,11 +61,8 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 						<table class="table no-margin">
 							<thead>
 								<tr>
-									<th>Mobile Number</th>
-									<th>Name</th>
-									<th>E-Mail Id</th>
-									<th>Status</th>
-									<th>User Type</th>
+									<th>Id</th>
+									<th>City</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -79,17 +76,19 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 										<tr>
 											<td><%=rs.getString(1)%></td>
 											<td><%=rs.getString(2)%></td>
-											<td><%=rs.getString(3)%></td>
-											<td><span class="label label-success"><%=rs.getString(4)%></span></td>
-											<td><%=rs.getString(5)%></td>
 											<td class="center">
-												<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
-													<i class="glyphicon glyphicon-edit icon-white"></i> Edit
-												</button>
+												<a class="btn btn-info"
+												href="add_booking_status.jsp"><i class="glyphicon glyphicon-edit icon-white"></i> Add
+												</a>
+
+												<a class="btn btn-info"
+												href="edit_booking_status.jsp?status_id=<%=rs.getString(1)%>"><i class="glyphicon glyphicon-edit icon-white"></i> Edit
+												</a>
+												
 												<a class="btn btn-danger"
-												href="/admin/delete_city?city_id=${city.cityId}"> <i
+												href="delete_booking_status.jsp?status_id=<%=rs.getString(1)%>"> <i
 												class="glyphicon glyphicon-trash icon-white"></i> Delete
-											</a>
+												</a>
 
 										</td>
 									</tr>

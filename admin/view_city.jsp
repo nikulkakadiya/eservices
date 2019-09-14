@@ -38,7 +38,7 @@ ps = con.prepareStatement("select * from city");
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-					<li class="active">Dashboard</li>
+					<li class="active">View City</li>
 				</ol>
 			</section>
 

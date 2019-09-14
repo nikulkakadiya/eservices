@@ -1,14 +1,14 @@
 <%@include file="check_login.jsp"%>
 <%
 	try{
-			String cityId=request.getParameter("city_id");
-			if(cityId != null){	
-				ps = con.prepareStatement("select * from city where id=?");
-				ps.setString(1,cityId);
+			String statusId=request.getParameter("status_id");
+			if(statusId != null){	
+				ps = con.prepareStatement("select * from booking_status where id=?");
+				ps.setString(1,statusId);
 				rs = ps.executeQuery();
 
 				if(!rs.next()){	
-				response.sendRedirect("view_city.jsp");
+				response.sendRedirect("view_booking_statu.jsp");
 				}
 			}
 		}
@@ -45,11 +45,11 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Add Data <small>Add Service</small>
+					Add Data <small>Edit Booking Status </small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-pencil-square-o"></i> Home</a></li>
-					<li class="active">Add Data</li>
+					<li class="active">Edit Booking Status</li>
 				</ol>
 			</section>
 
@@ -58,25 +58,25 @@
 			<!-- /.content-wrapper -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Add Services</h3>
+					<h3 class="box-title">Edit Booking Status</h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
 
-				<form action="update_city.jsp" method="POST">
+				<form action="update_booking_status.jsp" method="POST">
 					<div class="box-body">
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="city_id" placeholder="Id" value="<%=rs.getString(1)%>">
+							<input type="hidden" class="form-control" name="status_id" placeholder="Id" value="<%=rs.getString(1)%>">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">City</label>
-							<input type="text" class="form-control" name="city_name" placeholder="City Name" value="<%=rs.getString(2)%>">
+							<label for="exampleInputPassword1">Status Name</label>
+							<input type="text" class="form-control" name="status_name" placeholder="City Name" value="<%=rs.getString(2)%>">
 						</div>					
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button name="update_city" type="submit" class="btn btn-primary">Update</button>
+						<button name="update_booking_status" type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</form>
 			</div>

@@ -3,20 +3,20 @@
 <%
 
 
-String addCity = request.getParameter("add_city");
+String addBookingStatus = request.getParameter("add_booking_status");
 
-if(addCity!=null)
+if(addBookingStatus!=null)
 	{
-		String cityName=request.getParameter("city_name");
-		ps =con.prepareStatement("insert into city(name) values(?)");
+		String statusName=request.getParameter("status_name");
+		ps =con.prepareStatement("insert into booking_status(name) values(?)");
 		
-		ps.setString(1,cityName);
+		ps.setString(1,statusName);
 
 		int result = ps.executeUpdate();
 		
 		if(result == 1)
 		{
-			response.sendRedirect("view_city.jsp");
+			response.sendRedirect("view_booking_status.jsp");
 		}
 		else
 		{
@@ -58,11 +58,11 @@ if(addCity!=null)
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
-						Add Data <small>Add City</small>
+						Add Data <small>Add Booking Status</small>
 					</h1>
 					<ol class="breadcrumb">
 						<li><a href="#"><i class="fa fa-pencil-square-o"></i> Add Data</a></li>
-						<li class="active">Add City</li>
+						<li class="active">Add Booking Status</li>
 					</ol>
 				</section>
 
@@ -71,21 +71,21 @@ if(addCity!=null)
 				<!-- /.content-wrapper -->
 				<div class="box box-primary">
 					<div class="box-header with-border">
-						<h3 class="box-title">Add City</h3>
+						<h3 class="box-title">Add Booking Status</h3>
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
 					<form role="form">
 						<div class="box-body">						
 							<div class="form-group">
-								<label for="exampleInputPassword1">City</label>
-								<input type="text" class="form-control" name="city_name" placeholder="City">
+								<label for="exampleInputPassword1">Status Name</label>
+								<input type="text" class="form-control" name="status_name" placeholder="status">
 							</div>						
 						</div>
 						<!-- /.box-body -->
 
 						<div class="box-footer">
-							<button name="add_city" type="submit" class="btn btn-primary">Add</button>
+							<button name="add_booking_status" type="submit" class="btn btn-primary">Add</button>
 						</div>
 					</form>
 				</div>

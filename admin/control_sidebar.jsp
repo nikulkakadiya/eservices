@@ -117,7 +117,7 @@
 				<!-- /.form-group -->
 
 				<div class="form-group">
-					<label class="control-sidebar-subheading"> Allow mail
+					<label class="control-sidebar-subheading"> Allow mail				
 						redirect <input type="checkbox" class="pull-right" checked>
 					</label>
 
