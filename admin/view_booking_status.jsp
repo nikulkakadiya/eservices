@@ -78,10 +78,6 @@ ps = con.prepareStatement("select * from booking_status");
 											<td><%=rs.getString(2)%></td>
 											<td class="center">
 												<a class="btn btn-info"
-												href="add_booking_status.jsp"><i class="glyphicon glyphicon-edit icon-white"></i> Add
-												</a>
-
-												<a class="btn btn-info"
 												href="edit_booking_status.jsp?status_id=<%=rs.getString(1)%>"><i class="glyphicon glyphicon-edit icon-white"></i> Edit
 												</a>
 												

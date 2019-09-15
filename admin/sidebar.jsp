@@ -30,6 +30,7 @@
 				<ul class="treeview-menu">
 					<li class="active"><a href="add_services.jsp"><i class="fa fa-circle-o"></i>Add Services</a></li>
 					<li class="active"><a href="add_city.jsp"><i class="fa fa-circle-o"></i>Add City</a></li>
+					<li class="active"><a href="add_booking_status.jsp"><i class="fa fa-circle-o"></i>Add Booking Status</a></li>
 				</ul>
 			</li>
 			<li class="treeview">

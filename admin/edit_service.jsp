@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
 <%@include file="check_login.jsp"%>
-<%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
-<%@ page import="javax.servlet.http.*" %>
-<%@ page import="org.apache.commons.fileupload.*" %>
-<%@ page import="org.apache.commons.fileupload.disk.*" %>
-<%@ page import="org.apache.commons.fileupload.servlet.*" %>
-<%@ page import="org.apache.commons.io.output.*" %>
 
 <%
 String serviceId=request.getParameter("service_id");
@@ -74,8 +68,10 @@ if(serviceId != null){
 				<!-- /.box-header -->
 				<!-- form start -->
 
-				<form action="edit_services.jsp" method="POST" enctype="multipart/form-data">
+				<form action="update_service.jsp" method="POST" enctype="multipart/form-data">
 					<div class="box-body">
+						<input type="hidden" name="service_id" value="<%=rs.getString(1)%>"/>
+						<input type="hidden" name="image_id" value="<%=rs.getString(5)%>"/>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Service Name</label>
 							<input type="text" class="form-control" name="service_name" placeholder="Service Name" value="<%=rs.getString(2)%>">
@@ -90,8 +86,7 @@ if(serviceId != null){
 							<input type="file" name="service_image">
 
 						</div>
-						<input type="hidden" name="service_id" value="<%=rs.getString(1)%>"/>
-						<input type="hidden" name="image_id" value="<%=rs.getString(5)%>"/>
+						
 					</div>
 					<!-- /.box-body -->
 
