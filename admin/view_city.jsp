@@ -1,7 +1,6 @@
 <%@include file="check_login.jsp"%>
 <%
-ps = con.prepareStatement("select * from city");
-
+	ps = con.prepareStatement("select * from city");
 %>
 
 <!DOCTYPE html>

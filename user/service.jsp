@@ -1,7 +1,7 @@
 <%@include file="check_login.jsp"%>
 <%@include file="connection.jsp"%>
 <%
-ps = con.prepareStatement("SELECT name,description,path FROM service s inner join image i on s.image_id=i.id");
+ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inner join image i on s.image_id=i.id");
 %>
 <!--A Design by W3layouts
    Author: W3layout
@@ -12,16 +12,7 @@ ps = con.prepareStatement("SELECT name,description,path FROM service s inner joi
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-   <title>Toys Shop an Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
-   <!--meta tags -->
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="keywords" content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-   <%@include file="js_script.jsp"%>
-   <!--//meta tags ends here-->
-   <%@include file="css.jsp"%>
-
+  <%@include file="head_tag.jsp"%>
 </head>
 <body>
    <div class="header-outs" id="home">
@@ -57,76 +48,80 @@ ps = con.prepareStatement("SELECT name,description,path FROM service s inner joi
                                        <div class="info-product-price">
                                           <div class="grid_meta">
                                              <div class="product_price">
-                                                 <b>Service Name :</b>
-                                                <h4>
-                                                   <%
-                                                   String name=rs.getString(1);
-                                                   out.println(name);
-                                                   %>
-                                                </h4><hr>
-                                                <div class="grid-price mt-2">
-                                                   <span class="money ">
-                                                      <b>Description</b><br>
+                                               <b>Service Name :</b>
+                                               <h4>
+                                                <%
+                                                String name=rs.getString(1);
+                                                out.println(name);
+                                                %>
+                                             </h4><hr>
+                                             <div class="grid-price mt-2">
+                                                <span class="money ">
+                                                   <b>Description</b><br>
                                                    <%
                                                    String description=rs.getString(2);
                                                    out.println(description);
                                                    %>                                               
-                                                   </span>
-                                                </div>
-                                             </div>
-                                             <ul class="stars">
-                                                <li>
-                                                   <a href="#">
-                                                      <i class="fas fa-star"></i>
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">
-                                                      <i class="fas fa-star"></i>
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">
-                                                      <i class="fas fa-star"></i>
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">
-                                                      <i class="fas fa-star" ></i>
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">
-                                                      <i class="far fa-star-half-o"></i>
-                                                   </a>
-                                                </li>
-                                             </ul>
+                                                </span>
+                                             </div>                       
                                           </div>
-                                          <div class="toys single-item hvr-outline-out">
-                                             <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart">
-                                                <input type="hidden" name="add" value="1">
-                                                <input type="hidden" name="toys_item" value="toys(barbie)">
-                                                <input type="hidden" name="amount" value="575.00">
-                                                <button type="submit" class="toys-cart ptoys-cart">
-                                                   <i class="fas fa-cart-plus"></i>
-                                                </button>
-                                             </form>
+                                          <ul class="stars">
+                                             <li>
+                                                <a href="#">
+                                                   <i class="fas fa-star"></i>
+                                                </a>
+                                             </li>
+                                             <li>
+                                                <a href="#">
+                                                   <i class="fas fa-star"></i>
+                                                </a>
+                                             </li>
+                                             <li>
+                                                <a href="#">
+                                                   <i class="fas fa-star"></i>
+                                                </a>
+                                             </li>
+                                             <li>
+                                                <a href="#">
+                                                   <i class="fas fa-star" ></i>
+                                                </a>
+                                             </li>
+                                             <li>
+                                                <a href="#">
+                                                   <i class="far fa-star-half-o"></i>
+                                                </a>
+                                             </li>
+                                          </ul>
+                                       </div>                             
+                                       <div class="toys single-item hvr-outline-out">
+                                          <form action="#" method="post">
+                                             <input type="hidden" name="cmd" value="_cart">
+                                             <input type="hidden" name="add" value="1">
+                                             <input type="hidden" name="toys_item" value="toys(barbie)">
+                                             <input type="hidden" name="amount" value="575.00">
+                                             <button type="submit" class="toys-cart ptoys-cart">
+                                                <i class="fas fa-cart-plus"></i>
+                                             </button>
+                                          </form>
+                                                                                
+                                          <div class="col-sm-10">
+                                             <a href="check_booking.jsp?service_id=<%=rs.getString(4)%>"><button class="btn btn-primary"> Book</button></a>               
                                           </div>
-                                       </div>
-                                       <div class="clearfix"></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <%
-                        }
-                        %>                       
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>    
-      </div>      
-   </body>
-   </html>
+                                     </div>
+                                  </div>
+                                  <div class="clearfix"></div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                      <%
+                   }
+                   %>                       
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>    
+ </div>      
+</body>
+</html>

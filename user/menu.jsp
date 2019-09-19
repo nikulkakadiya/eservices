@@ -24,8 +24,13 @@
             {
                %>
                   <a href="profile.jsp" class="nav-link">Profile</a>
+                  <%
+                  if(session.getAttribute("userType").equals("Service Provider"))
+                     {
+                  %>
                   <a href="add_service_skill.jsp" class="nav-link">Add Skill</a>
                   <a href="view_skill.jsp" class="nav-link">view skill</a>
+                  <%}%>
                   <a href="logout.jsp" class="nav-link">Log-Out</a>
                <%
             }

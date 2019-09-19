@@ -28,12 +28,12 @@ if(login!=null)
          session.setAttribute("userType",rs.getString(4));
          response.sendRedirect("service.jsp");
       }
-      else
-      {
-         out.println("<script>alert('Enter Correct User or Password')</script>");
-      }     
+      //else
+      //{
+        // out.println("<script>alert('Enter Correct User or Password')</script>");
+      //}     
    }  
-   
+      
    %>
 <!--A Design by W3layouts
    Author: W3layout
@@ -44,16 +44,7 @@ if(login!=null)
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-   <title>Toys Shop an Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
-   <!--meta tags -->
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="keywords" content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-   <%@include file="js_script.jsp"%>
-   <!--//meta tags ends here-->
-   <%@include file="css.jsp"%>
-
+   <%@include file="head_tag.jsp"%>
 </head>
 <style type="text/css">
    .toppadding{
@@ -84,7 +75,7 @@ if(login!=null)
                   <form action="#" method="post">
                      <div class="fields-grid">
                         <div class="styled-input">
-                           <input type="text" placeholder="Your Mobile Number" name="mobileno" required="">
+                           <input type="text" placeholder="Your Mobile Number" name="mobileno" required minlength="10" maxlength="10">
                         </div>                        
                         <div class="styled-input">
                            <input type="password" placeholder="password" name="password" required="">

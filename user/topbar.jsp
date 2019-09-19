@@ -1,7 +1,7 @@
 <div class="container-fluid">
    <div class="hedder-up row">
       <div class="col-lg-3 col-md-3 logo-head">
-         <h1><a class="navbar-brand" href="index.html">E-Services</a></h1>
+         <h1><a class="navbar-brand" href="index.jsp">E-Services</a></h1>
       </div>
       <div class="col-lg-5 col-md-6 search-right">
          <form class="form-inline my-lg-0">

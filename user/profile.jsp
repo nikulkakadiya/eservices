@@ -9,20 +9,11 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-   <title>Toys Shop an Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
-   <!--meta tags -->
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="keywords" content="Toys Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-   <%@include file="js_script.jsp"%>
-   <!--//meta tags ends here-->
-   <%@include file="css.jsp"%>
-
+   <%@include file="head_tag.jsp"%>
 </head>
 <style type="text/css">
    .toppadding{
-      padding-top: 80px;
+      padding-top: 150px;
       position:fixed; left:80px; top:20px;
    }
    .topaddress{
@@ -30,6 +21,11 @@
       position:absolute; right:100px; top:20px;
       width: 500px;
       
+   }
+   .ProfileImage{
+    padding-top: 150px;
+    padding-left: 200px;
+     position:fixed;
    }
 </style>
 <body>
@@ -40,17 +36,17 @@
       </div>
    </div>
 
-   <!--Login-->
-   <div class="toppadding">
+   <!--profile-->
+    <div class="ProfileImage">
+      <img src="images/profile.png" height="100px" width="100px">
+    </div>
+   <div class="toppadding">   
       <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">My Profile :<%=session.getAttribute("userType")
-                  %></h5>
-              <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button> -->
+                  %></h5>             
             </div>
             <div class="modal-body">
                <div class="register-form">
@@ -100,12 +96,12 @@ ps.setString(1,userId);
                         <%
                         rs=ps.executeQuery();
                         if(rs.next())
-                           {
+                           {                            
                               %>      
 
                               <div class="form-group">
                                  <label for="inputAddress">Address 1</label>
-                                 <input type="text" value="<%=rs.getString(1)%>" class="form-control" id="inputAddress" readonly="readonly">
+                                 <input type="text" name="line_1" value="<%=rs.getString(1)%>" class="form-control" id="inputAddress" readonly="readonly">
                               </div>
                               <div class="form-group">
                                  <label for="inputAddress2">Address 2</label>
@@ -125,14 +121,17 @@ ps.setString(1,userId);
                                     <input type="text" value="<%=rs.getString(5)%>" class="form-control" id="inputZip" readonly="readonly">
                                  </div>
                                  <div class="col-sm-10">
-                                    <button class="btn btn-primary"><a href="adit_address.jsp">Edit</a></button>
+                                    <button class="btn btn-primary"><a href="edit_address.jsp">Edit</a></button>
                                  </div><br>
                                  <%
-                              }
+                              } else {
                               %>
                               <div class="col-sm-10">
                                 <button class="btn btn-primary"> <a href="add_address.jsp">Add</a></button>               
-                             </div>                                 
+                             </div>  
+                             <%
+                            }
+                              %>                               
                           </div>
                        </form>
                     </div>
