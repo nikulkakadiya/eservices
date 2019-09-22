@@ -1,6 +1,6 @@
 <%@include file="check_login.jsp"%>
 <%
-ps = con.prepareStatement("select id,service_id,service_provider_id,customer_id,date from booking");
+ps = con.prepareStatement("select b.id,b.service_id,b.service_provider_id,b.customer_id,b.date,bs.name from booking b inner join booking_status bs on b.booking_status_id=bs.id");
 
 %>
 
@@ -47,7 +47,7 @@ ps = con.prepareStatement("select id,service_id,service_provider_id,customer_id,
 			<!-- /.content-wrapper -->
 			<div class="box box-info">
 				<div class="box-header with-border">
-					<h3 class="box-title">User</h3>
+					<h3 class="box-title">Booking</h3>
 
 					<div class="box-tools pull-right">
 						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -66,7 +66,7 @@ ps = con.prepareStatement("select id,service_id,service_provider_id,customer_id,
 									<th>Service Provider Id</th>
 									<th>Customer Id</th>
 									<th>Date</th>
-									<th>Booking Satus Id</th>
+									<th>Booking Satus</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -83,13 +83,13 @@ ps = con.prepareStatement("select id,service_id,service_provider_id,customer_id,
 											<td><%=rs.getString(3)%></td>
 											<td><%=rs.getString(4)%></td>
 											<td><%=rs.getDate(5)%></td>
-											<td><%=rs.getString(1)%></td>
+											<td><%=rs.getString(6)%></td>
 											<td class="center">			
 												<a class="btn btn-info"
-												href="edit_booking.jsp?city_id=<%=rs.getString(1)%>"><i class="glyphicon glyphicon-edit icon-white"></i> Edit
+												href="edit_booking.jsp?booking_id=<%=rs.getString(1)%>"><i class="glyphicon glyphicon-edit icon-white"></i> Edit
 											</a>					
 
-										</td>
+							</td>
 									</tr>
 									<%
 								}

@@ -24,6 +24,7 @@
             {
                %>
                   <a href="profile.jsp" class="nav-link">Profile</a>
+                  <a href="view_booking.jsp" class="nav-link">View Booking</a>
                   <%
                   if(session.getAttribute("userType").equals("Service Provider"))
                      {

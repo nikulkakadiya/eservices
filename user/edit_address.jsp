@@ -81,7 +81,7 @@ try{
             </div>
             <div class="modal-body">
                <div class="register-form">
-                  <form action="adit_address.jsp" method="post">
+                  <form action="edit_address.jsp" method="post">
                      <div class="fields-grid">  
                         <%
                         

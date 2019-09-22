@@ -14,6 +14,12 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
 <head>
   <%@include file="head_tag.jsp"%>
 </head>
+<style type="text/css">
+  .service
+  {
+    padding-top: 50px;
+  }
+</style>
 <body>
    <div class="header-outs" id="home">
       <div class="header-bar">
@@ -21,8 +27,9 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
          <%@include file="menu.jsp"%>
       </div>
       <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
-         <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
-            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Toys Shop</h3>
+        <div class="service">
+        <div class="container-fluid py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3"></h3>
             <div class="row">               
                <div class="left-ads-display col-lg-9">
                   <div class="row">
@@ -105,7 +112,7 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
                                           </form>
                                                                                 
                                           <div class="col-sm-10">
-                                             <a href="check_booking.jsp?service_id=<%=rs.getString(4)%>"><button class="btn btn-primary"> Book</button></a>               
+                                             <a href="booking.jsp?service_id=<%=rs.getString(4)%>"><button class="btn btn-primary"> Book</button></a>               
                                           </div>
                                      </div>
                                   </div>
@@ -120,7 +127,8 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
                 </div>
              </div>
           </div>
-       </div>
+        </div>
+        </div>
     </section>    
  </div>      
 </body>

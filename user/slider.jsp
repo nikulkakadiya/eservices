@@ -2,7 +2,8 @@
    <div class="callbacks_container">
       <ul class="rslides" id="slider4">
          <li>
-            <div class="slider-img one-img">
+            <img src="images/Electronics.png">
+         <!--    <div class="slider-img one-img">
                <div class="container">
                   <div class="slider-info ">
                      <h5>Pick The Best Toy For <br>Your Kid</h5>
@@ -14,7 +15,7 @@
                      </div>
                   </div>
                </div>
-            </div>
+            </div> -->
          </li>
          <li>
             <div class="slider-img two-img">

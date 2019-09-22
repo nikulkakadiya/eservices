@@ -1,16 +1,17 @@
 <%@include file="check_login.jsp"%>
 <%
+			
 	try{
-			String cityId=request.getParameter("city_id");
-			if(cityId != null){	
-				ps = con.prepareStatement("select * from city where id=?");
-				ps.setString(1,cityId);
+			String bookingId=request.getParameter("booking_id");
+			if(bookingId != null){	
+				ps = con.prepareStatement("select * from booking where id=?");
+				ps.setString(1,bookingId);
 				rs = ps.executeQuery();
 
-				if(!rs.next()){
-				response.sendRedirect("view_city.jsp");
+				if(!rs.next()){	
+				response.sendRedirect("view_booking.jsp");
 				}
-			} 	
+			}
 		}
 		catch(Exception e){}
 %>
@@ -64,20 +65,23 @@
 				<!-- /.box-header -->
 				<!-- form start -->
 
-				<form action="update_city.jsp" method="POST">
+				<form action="update_booking.jsp" method="POST">
 					<div class="box-body">
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="city_id" placeholder="Id" value="<%=rs.getString(1)%>">
-						</div>
+							<input type="hidden" class="form-control" name="booking_id" placeholder="Id" value="<%=rs.getString(1)%>">
+						</div>						
 						<div class="form-group">
-							<label for="exampleInputPassword1">City</label>
-							<input type="text" class="form-control" name="city_name" placeholder="City Name" value="<%=rs.getString(2)%>">
+							<label for="exampleInputPassword1">Booking Status</label>
+							<select name="booking_status">
+								<option value="6">Booked</option>
+								<option value="7">Cancel</option>
+							</select>
 						</div>					
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button name="update_city" type="submit" class="btn btn-primary">Update</button>
+						<button name="update_booking" type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</form>
 			</div>
