@@ -2,8 +2,8 @@
 <%@include file="check_login.jsp"%>
 <%@include file="connection.jsp"%>
 <%
-   
-   String addAddress=request.getParameter("add_address");  
+try{
+      String addAddress=request.getParameter("add_address");  
 
       String addressId = UUID.randomUUID().toString();
 
@@ -33,6 +33,11 @@
       {
          out.println("<script>alert('Record Not Add')</script>");
       }
+   }
+   catch(Exception e)
+   {
+      out.println(e);
+   }
    
 
 %>

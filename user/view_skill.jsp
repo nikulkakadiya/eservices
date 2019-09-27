@@ -43,7 +43,7 @@
             <tr>
                <td><%=rs.getString(1)%></td>
                <td><%=rs.getString(2)%></td>
-               <td><a href="delete_skill.jsp?service_id=<%=rs.getString(3)%>">Delete</a></td>
+               <td><a href="delete_skill.jsp?service_id=<%=rs.getString(3)%>"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             <%}%>
          </table>

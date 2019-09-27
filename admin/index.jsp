@@ -1,6 +1,7 @@
 <%@include file="connection.jsp"%>
 <%
 
+boolean isCorrectLogin = true;
 String sub = request.getParameter("sub");
 
 
@@ -27,7 +28,7 @@ if(sub!=null)
 		}
 		else
 		{
-			out.println("<script>alert('Enter Correct User or Password')</script>");
+			isCorrectLogin = false;
 		}		
 	}	
 	
@@ -38,7 +39,7 @@ if(sub!=null)
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>AdminLTE 2 | Log in</title>
+		<title>Admin| Log in</title>
 		<!-- Tell the browser to be responsive to screen width -->
 		<meta
 		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -48,6 +49,16 @@ if(sub!=null)
 	</head>
 	<body class="hold-transition login-page">
 		<div class="login-box">
+			<% if(!isCorrectLogin)
+				{
+			%>
+			<div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                Username or password are invalid.
+              </div>
+            <%	}
+            %>
 			<div class="login-logo">
 				<b>Admin</b>Panel
 			</div>
@@ -58,13 +69,13 @@ if(sub!=null)
 				<form  method="post">
 
 					<div class="form-group has-feedback">
-						<input type="number" name="mobile_no" class="form-control"
-						placeholder="Number"> <span
-						class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						<input type="text" name="mobile_no" class="form-control"
+						placeholder="Number" minlength="10" maxlength="10" required> <span
+						class="glyphicon fa fa-fw-sx fa-phone-square form-control-feedback"></span>
 					</div>
 					<div class="form-group has-feedback">
 						<input type="password" name="password" class="form-control"
-						placeholder="Password"> <span
+						placeholder="Password" required> <span
 						class="glyphicon glyphicon-lock form-control-feedback"></span>
 					</div>
 					<div class="row">

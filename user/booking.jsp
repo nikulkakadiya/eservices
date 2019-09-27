@@ -47,7 +47,7 @@
          <div class="modal-header">
             <h3>Service Provider Name</h3>
               <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+                  <spasn aria-hidden="true">&times;</span>
                </button> -->
             </div>
             	<div class="modal-body">
@@ -55,12 +55,14 @@
 						ps=con.prepareStatement("select u.name,spk.service_provider_id from address a inner join service_provider_skill spk on a.user_id=spk.service_provider_id inner join user u on spk.service_provider_id=u.mobile_no where spk.service_id=? && a.city_id=?");
 						ps.setString(1,serviceId);
 						ps.setString(2,city);					
-
+                  %>
+                      
+                      <table>                      
+                    <%
                			rs=ps.executeQuery();
                			while(rs.next())
                			{
                     %>
-                      <table>
                         <tr>                          
                				     <td><h3><%=rs.getString(1)%><h3></td>
                            <td>
@@ -69,10 +71,10 @@
                               </div>
                            </td>
                         </tr>
-                      </table>                     
                     <% 
                			}
                		%>            		
+                      </table>                     
                 </div>               
               </div>
            </div>

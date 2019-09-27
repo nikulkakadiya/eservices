@@ -41,11 +41,11 @@
                <div class="left-ads-display col-lg-9">
                 <div align="center" class="dropdow">                  
                   <h1>change</h1>
-                  <form action="">
+                  <form action="update_booking.jsp">
                     <input type="hidden" class="form-control" name="booking_id" placeholder="Id" value="<%=rs.getString(1)%>">                 
-                    <select>
-                      <option>Booked</option>
-                      <option>Cancel</option>
+                    <select name="booking_status">
+                      <option value="6">Booked</option>
+                      <option value="7">Cancel</option>
                     </select>
                     <button name="update_booking" type="submit" class="btn btn-primary">Update</button>
                   </form>

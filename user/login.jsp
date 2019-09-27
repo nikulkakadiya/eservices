@@ -51,6 +51,7 @@ if(login!=null)
       padding-top: 80px;
    }
 </style>
+
 <body>
    <div class="header-outs" id="home">
       <div class="header-bar">
