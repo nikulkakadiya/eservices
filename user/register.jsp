@@ -1,7 +1,7 @@
 <%@include file="connection.jsp"%>
 <%
 
-
+boolean isRegister=true;
 String sub = request.getParameter("sub");
 
 if(sub!=null)
@@ -29,7 +29,7 @@ if(sub!=null)
       }
       else
       {
-         out.println("<script>alert('Record Not Add')</script>");
+         isRegister=false;
       }
    }
    
@@ -63,6 +63,17 @@ if(sub!=null)
       <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
+            <%
+               if (!isRegister) {                  
+            %>
+               <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                Username or password are invalid.
+              </div>
+            <% 
+               }
+            %>
                <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Register</h5>                   
                </div>

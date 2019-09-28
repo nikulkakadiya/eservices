@@ -2,6 +2,7 @@
 <%
 
 String login = request.getParameter("login");
+boolean isCorrectLogin = true;
 
 
    //int mobile_no=null;
@@ -26,12 +27,16 @@ if(login!=null)
          session.setAttribute("mobile",rs.getString(1));
          session.setAttribute("email",rs.getString(3));
          session.setAttribute("userType",rs.getString(4));
-         response.sendRedirect("service.jsp");
+
+         if(session.getAttribute("userType").equals("Service Provider"))
+            response.sendRedirect("profile.jsp");            
+         else
+            response.sendRedirect("service.jsp");
       }
-      //else
-      //{
-        // out.println("<script>alert('Enter Correct User or Password')</script>");
-      //}     
+      else
+      {
+         isCorrectLogin = false;
+      }     
    }  
       
    %>
@@ -58,13 +63,25 @@ if(login!=null)
          <%@include file="topbar.jsp"%>
          <%@include file="menu.jsp"%>
       </div>
-   </div>
+   </div>  
+   
 
    <!--Login-->
-   <div class="toppadding">
+   <div class="toppadding">            
    <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
       <div class="modal-dialog" role="document">
          <div class="modal-content">
+            <%
+               if (!isCorrectLogin) {                  
+            %>
+               <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                Username or password are invalid.
+              </div>
+            <% 
+               }
+            %>
             <div class="modal-header">
                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
               <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -82,7 +99,7 @@ if(login!=null)
                            <input type="password" placeholder="password" name="password" required="">
                         </div>
                         <div class="dropdown">
-                            <select name = "usertype">
+                            <select name = "usertype" required="">
                               <%
                               ps = con.prepareStatement("select * from user_type where id !=1");
                               rs = ps.executeQuery();       
@@ -106,6 +123,6 @@ if(login!=null)
          </div>
       </div>
    </div>
-   </div>
+   </div>   
 </body>
 </html>

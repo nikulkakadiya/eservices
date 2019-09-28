@@ -2,7 +2,7 @@
 
 <%
 
-
+	boolean isCorrectAddCity=true;
 String addCity = request.getParameter("add_city");
 
 if(addCity!=null)
@@ -20,7 +20,7 @@ if(addCity!=null)
 		}
 		else
 		{
-			out.println("<script>alert('Record Not Add')</script>");
+			isCorrectAddCity=false;
 		}
 		
 	}
@@ -65,8 +65,17 @@ if(addCity!=null)
 						<li class="active">Add City</li>
 					</ol>
 				</section>
-
-				
+				<%
+					if (!isCorrectAddCity) {
+				%>
+					<div class="alert alert-info alert-dismissible">
+	                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	                <h4 align="center"><i class="icon fa fa-info"></i> Alert!</h4>
+	                <p align="center">Record Not Add.</p>
+	              	</div>
+	            <%
+	            	}
+	            %>				
 				<!-- Main content -->
 				<!-- /.content-wrapper -->
 				<div class="box box-primary">
@@ -79,7 +88,7 @@ if(addCity!=null)
 						<div class="box-body">						
 							<div class="form-group">
 								<label for="exampleInputPassword1">City</label>
-								<input type="text" class="form-control" name="city_name" placeholder="City">
+								<input type="text" class="form-control" name="city_name" placeholder="City" required="">
 							</div>						
 						</div>
 						<!-- /.box-body -->

@@ -10,9 +10,18 @@
          <li class="nav-item">
             <a href="about.jsp" class="nav-link">About</a>
          </li>
-         <li class="nav-item">
-            <a href="service.jsp" class="nav-link">Service</a>
-         </li>
+            <%if (session.getAttribute("name")!=null) {            
+                  if(session.getAttribute("userType").equals("customer"))
+                     {
+            %>
+                     <li class="nav-item">
+                        <a href="service.jsp" class="nav-link">Service</a>
+                     </li>
+            <%
+                     }
+               }
+            %>
+            
 
          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

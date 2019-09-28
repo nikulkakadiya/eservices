@@ -9,7 +9,7 @@ pageEncoding="ISO-8859-1"%>
 <%@ page import="org.apache.commons.io.output.*" %>
 <%@include file="path.jsp"%>
 <%
-
+boolean isCorrectAddService = true;
 File file ;
 int maxFileSize = 5000 * 1024 * 1024;
 int maxMemSize = 5000 * 1024 * 1024;
@@ -80,7 +80,7 @@ description = fieldValue;
 		}
 		else
 		{
-			out.println("<script>alert('Record Not Add')</script>");
+			 isCorrectAddService = false;			
 		}
 	}catch(Exception ex) {
 	System.out.println(ex);
@@ -127,7 +127,17 @@ description = fieldValue;
 					<li class="active">Add Service</li>
 				</ol>
 			</section>
-
+			<%
+				if (!isCorrectAddService) {
+			%>
+				<div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4 align="center"><i class="icon fa fa-info"></i> Alert!</h4>
+                <p align="center">Record Not Add.</p>
+              	</div>
+            <%
+            	}
+            %>
 
 			<!-- Main content -->
 			<!-- /.content-wrapper -->
@@ -141,15 +151,15 @@ description = fieldValue;
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Service Name</label>
-							<input type="text" class="form-control" name="service_name" placeholder="Service Name">
+							<input type="text" class="form-control" name="service_name" placeholder="Service Name" required="">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Description</label>
-							<input type="text" class="form-control" name="description" placeholder="Description">
+							<input type="text" class="form-control" name="description" placeholder="Description" required="">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputFile">Service Image</label>
-							<input type="file" name="service_image">
+							<input type="file" name="service_image" required="">
 
 
 						</div>

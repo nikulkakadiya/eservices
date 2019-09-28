@@ -2,7 +2,7 @@
 
 <%
 
-
+	boolean isCorrectAddBooking=true;
 String addBookingStatus = request.getParameter("add_booking_status");
 
 if(addBookingStatus!=null)
@@ -20,7 +20,7 @@ if(addBookingStatus!=null)
 		}
 		else
 		{
-			out.println("<script>alert('Record Not Add')</script>");
+			isCorrectAddBooking=false;
 		}
 		
 	}
@@ -65,8 +65,17 @@ if(addBookingStatus!=null)
 						<li class="active">Add Booking Status</li>
 					</ol>
 				</section>
-
-				
+				<%
+					if (!isCorrectAddBooking) {
+				%>
+					<div class="alert alert-info alert-dismissible">
+	                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	                <h4 align="center"><i class="icon fa fa-info"></i> Alert!</h4>
+	                <p align="center">Record Not Add.</p>
+	              	</div>
+	            <%
+	            	}
+	            %>								
 				<!-- Main content -->
 				<!-- /.content-wrapper -->
 				<div class="box box-primary">
@@ -79,7 +88,7 @@ if(addBookingStatus!=null)
 						<div class="box-body">						
 							<div class="form-group">
 								<label for="exampleInputPassword1">Status Name</label>
-								<input type="text" class="form-control" name="status_name" placeholder="status">
+								<input type="text" class="form-control" name="status_name" placeholder="status" required="">
 							</div>						
 						</div>
 						<!-- /.box-body -->

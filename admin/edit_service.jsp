@@ -74,11 +74,11 @@ if(serviceId != null){
 						<input type="hidden" name="image_id" value="<%=rs.getString(5)%>"/>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Service Name</label>
-							<input type="text" class="form-control" name="service_name" placeholder="Service Name" value="<%=rs.getString(2)%>">
+							<input type="text" class="form-control" name="service_name" placeholder="Service Name" value="<%=rs.getString(2)%>" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Description</label>
-							<input type="text" class="form-control" name="description" placeholder="Description" value="<%=rs.getString(3)%>">
+							<input type="text" class="form-control" name="description" placeholder="Description" value="<%=rs.getString(3)%>" required>
 						</div>
 						<div class="form-group">
 							<img src="<%=rs.getString(4)%>" height="40px" width="50px" /><br>

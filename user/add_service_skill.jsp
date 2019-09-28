@@ -1,6 +1,7 @@
 <%@include file="check_login.jsp"%>
 <%@include file="connection.jsp"%>
 <%
+   boolean isCorrectService=true;
    ps = con.prepareStatement("select id,name from service");
    rs=ps.executeQuery();
 
@@ -23,7 +24,7 @@ try{
       }
       else
       {
-         out.println("<script>alert('Record Not Add')</script>");
+         isCorrectService=false;
       }
    }
 }
@@ -56,6 +57,17 @@ catch(Exception ex){}
   <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
+            <%
+               if (!isCorrectService) {                  
+            %>
+               <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                Username or password are invalid.
+              </div>
+            <% 
+               }
+            %>
          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">My Address :<%=session.getAttribute("userType")
             %></h5>
