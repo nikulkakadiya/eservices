@@ -80,7 +80,7 @@ catch(Exception ex){}
                   <form action="add_service_skill.jsp" method="post">
                      <div class="fields-grid">
                                                 
-                              <div class="form-group col-md-6">
+                              <div class="form-group">
                                  <label for="inputState">Service</label>   
                                  <select id="inputState" name="city_id" class="form-control">
                                     <%

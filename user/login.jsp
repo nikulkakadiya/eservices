@@ -4,13 +4,10 @@
 String login = request.getParameter("login");
 boolean isCorrectLogin = true;
 
-
-   //int mobile_no=null;
 if(login!=null)
    {
-      // name=Character.parseChar(request.getParameter("name"));
+
       String mobileno = request.getParameter("mobileno").toString();
-      
       String password = request.getParameter("password");
       String userTypeId = request.getParameter("usertype");
 
@@ -40,12 +37,7 @@ if(login!=null)
    }  
       
    %>
-<!--A Design by W3layouts
-   Author: W3layout
-   Author URL: http://w3layouts.com
-   License: Creative Commons Attribution 3.0 Unported
-   License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -84,9 +76,7 @@ if(login!=null)
             %>
             <div class="modal-header">
                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-              <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button> -->
+             
             </div>
             <div class="modal-body">
                <div class="register-form">
@@ -96,9 +86,9 @@ if(login!=null)
                            <input type="text" placeholder="Your Mobile Number" name="mobileno" required minlength="10" maxlength="10">
                         </div>                        
                         <div class="styled-input">
-                           <input type="password" placeholder="password" name="password" required="">
+                           <input type="password" placeholder="password" name="password" required>
                         </div>
-                        <div class="dropdown">
+                        <div class="form-group">
                             <select name = "usertype" required="">
                               <%
                               ps = con.prepareStatement("select * from user_type where id !=1");

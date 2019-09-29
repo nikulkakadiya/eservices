@@ -97,7 +97,7 @@ try{
                                  <label for="inputAddress2">Address 2</label>
                                  <input type="text" name="line_2" value="<%=rs.getString(2)%>" class="form-control" id="inputAddress2">
                               </div>
-                              <div class="form-group col-md-6">
+                              <div class="form-group">
                                  <label for="inputState">City</label>
                                  <select name="city_id" id="inputState" class="form-control">
                                     <option value="1">surat</option>
@@ -106,7 +106,7 @@ try{
                                     <option value="4">Baroda</option>
                                  </select>
                               </div>
-                              <div class="form-group col-md-6">
+                              <div class="form-group">
                                  <label for="inputZip">Zip</label>
                                  <input type="text" name="pincode" value="<%=rs.getString(3)%>" class="form-control" id="inputZip">
                               </div>
@@ -118,7 +118,7 @@ try{
                            }
                            %>
                            <div class="col-sm-10">
-                             <button name="edit" class="btn btn-primary">Click Edit</button>               
+                             <button name="edit" class="btn btn-primary">Update</button>               
                           </div>                                 
                        </div>
                     </form>

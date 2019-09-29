@@ -1,11 +1,6 @@
 <%@include file="check_login.jsp"%>
 <%@include file="connection.jsp"%>
-<!--A Design by W3layouts
-   Author: W3layout
-   Author URL: http://w3layouts.com
-   License: Creative Commons Attribution 3.0 Unported
-   License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -74,10 +69,11 @@
 <!----top Address-------------->
 
 <%
-String userId=(String)session.getAttribute("mobile");   
-ps = con.prepareStatement("select line_1,line_2,pincode,city_id,a.name,c.name from address a inner join city c on a.city_id=c.id where a.user_id=?");
-ps.setString(1,userId);
+  String userId=(String)session.getAttribute("mobile");   
+  ps = con.prepareStatement("select line_1,line_2,pincode,city_id,a.name,c.name from address a inner join city c on a.city_id=c.id where a.user_id=?");
+  ps.setString(1,userId);
 %>
+
 <div class="topaddress">
  <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
    <div class="modal-dialog" role="document">
@@ -107,12 +103,12 @@ ps.setString(1,userId);
                                  <label for="inputAddress2">Address 2</label>
                                  <input type="text" value="<%=rs.getString(2)%>" class="form-control" id="inputAddress2" readonly="readonly">
                               </div>
-                              <div class="form-group col-md-6">
+                              <div class="form-group">
                                  <label for="inputState">City</label>
-                                 <select readonly="readonly" id="inputState" class="form-control">
-                                    <option value="<%=rs.getString(4)%>"><%=rs.getString(6)%></option>                                         </select>
+                                 <input type="text" value="<%=rs.getString(6)%>" class="form-control" id="inputAddress2" readonly="readonly">
+                                
                                  </div>
-                                 <div class="form-group col-md-6">
+                                 <div class="form-group">
                                     <label for="inputZip">Zip</label>
                                     <input type="text" value="<%=rs.getString(3)%>" class="form-control" id="inputZip" readonly="readonly">
                                  </div>
