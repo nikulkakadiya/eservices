@@ -1,4 +1,4 @@
-<%@include file="connection.jsp"%>
+   <%@include file="connection.jsp"%>
 <%
 
 String login = request.getParameter("login");

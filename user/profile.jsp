@@ -110,7 +110,7 @@
                                  </div>
                                  <div class="form-group">
                                     <label for="inputZip">Zip</label>
-                                    <input type="text" value="<%=rs.getString(3)%>" class="form-control" id="inputZip" readonly="readonly">
+                                    <input type="text" value="<%=rs.getString(3)%>" class="form-control" id="inputZip" readonly="readonly" minlength="6" maxlength="6">
                                  </div>
                                  <div class="form-group">
                                     <label for="inputZip">Name</label>

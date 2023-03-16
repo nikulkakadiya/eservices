@@ -23,7 +23,8 @@ factory.setRepository(new File(imagePathToSave));
 ServletFileUpload upload = new ServletFileUpload(factory);
 upload.setSizeMax( maxFileSize );
 
-try{ 
+try{
+
 List fileItems = upload.parseRequest(request);
 Iterator itr = fileItems.iterator();
 String serviceId = UUID.randomUUID().toString();
@@ -57,7 +58,8 @@ description = fieldValue;
 }
 }
 }
-
+		
+	
 		// inserting image
 		ps =con.prepareStatement("insert into image(id, path) values(?,?)");
 		ps.setString(1,imageId);
@@ -83,7 +85,8 @@ description = fieldValue;
 			 isCorrectAddService = false;			
 		}
 	}catch(Exception ex) {
-	System.out.println(ex);
+	//System.out.println(ex);
+	out.println("hello error "+" "+ex);
 }
 
 }  %>
@@ -155,7 +158,7 @@ description = fieldValue;
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Description</label>
-							<input type="text" class="form-control" name="description" placeholder="Description" required="">
+							<input type="text" class="form-control" name="description" maxlength="55" placeholder="Description" required="">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputFile">Service Image</label>

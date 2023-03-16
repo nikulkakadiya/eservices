@@ -44,12 +44,12 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
                                  <div class="men-pro-item">
                                     <div class="men-thumb-item">
                                        <img src="<%=rs.getString(3)%>" height="180px" width="80px">
-                                       <div class="men-cart-pro">
+                                       <!-- <div class="men-cart-pro">
                                           <div class="inner-men-cart-pro">
                                              <a href="single.jsp" class="link-product-add-cart">Quick View</a>
                                           </div>
                                        </div>
-                                       <span class="product-new-top">New</span>
+                                       <span class="product-new-top">New</span> -->
                                     </div>
                                     <div class="item-info-product">
                                        <div class="info-product-price">
@@ -101,7 +101,7 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
                                           </ul>
                                        </div>                             
                                        <div class="toys single-item hvr-outline-out">
-                                          <form action="#" method="post">
+                                          <!-- <form action="#" method="post">
                                              <input type="hidden" name="cmd" value="_cart">
                                              <input type="hidden" name="add" value="1">
                                              <input type="hidden" name="toys_item" value="toys(barbie)">
@@ -109,7 +109,7 @@ ps = con.prepareStatement("SELECT name,description,path,s.id FROM service s inne
                                              <button type="submit" class="toys-cart ptoys-cart">
                                                 <i class="fas fa-cart-plus"></i>
                                              </button>
-                                          </form>
+                                          </form> -->
                                                                                 
                                           <div class="col-sm-10">
                                              <a href="booking.jsp?service_id=<%=rs.getString(4)%>"><button class="btn btn-primary"> Book</button></a>               

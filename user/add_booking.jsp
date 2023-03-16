@@ -12,7 +12,7 @@ try{
 	String serviceId=request.getParameter("service_id");
 	String customerId=(String)session.getAttribute("mobile");
 	
-	String status="6";	
+	String status="1";	
 	ps=con.prepareStatement("insert into booking (id,service_id,service_provider_id,customer_id,booking_status_id)values(?,?,?,?,?)");
 	ps.setString(1,bookingId);
 	ps.setString(2,serviceId);

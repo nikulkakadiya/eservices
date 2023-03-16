@@ -108,7 +108,7 @@ try{
                               </div>
                               <div class="form-group">
                                  <label for="inputZip">Zip</label>
-                                 <input type="text" name="pincode" value="<%=rs.getString(3)%>" class="form-control" id="inputZip">
+                                 <input type="text" name="pincode" value="<%=rs.getString(3)%>" class="form-control" id="inputZip" minlength="6" maxlength="6">
                               </div>
                               <div class="form-group">
                                  <label for="inputZip">Name</label>

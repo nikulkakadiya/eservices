@@ -78,7 +78,7 @@ try{
       <div class="container py-lg-5 py-md-4 py-sm-4 py-3" id="exampleModal">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <%
+            <!-- <%
                if (!isCorrectAddress) {                  
             %>
                <div class="alert alert-info alert-dismissible">
@@ -88,7 +88,7 @@ try{
               </div>
             <% 
                }
-            %>
+            %> -->
                <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">My Profile :<%=session.getAttribute("userType")
                   %></h5>

@@ -44,8 +44,8 @@
                   <form action="update_booking.jsp">
                     <input type="hidden" class="form-control" name="booking_id" placeholder="Id" value="<%=rs.getString(1)%>">                 
                     <select name="booking_status">
-                      <option value="6">Booked</option>
-                      <option value="7">Cancel</option>
+                      <option value="1">Booked</option>
+                      <option value="3">Cancel</option>
                     </select>
                     <button name="update_booking" type="submit" class="btn btn-primary">Update</button>
                   </form>
