@@ -50,11 +50,11 @@ if(serviceId != null){
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Add Data <small>Add Service</small>
+					 Dashboard <small>Update Service</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-pencil-square-o"></i> Home</a></li>
-					<li class="active">Add Data</li>
+					<li><a href="home.jsp"><i class="fa fa-pencil-square-o"></i> Home</a></li>
+					<li class="active">Update Data</li>
 				</ol>
 			</section>
 
@@ -63,7 +63,7 @@ if(serviceId != null){
 			<!-- /.content-wrapper -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Add Services</h3>
+					<h3 class="box-title">Udate Services</h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->

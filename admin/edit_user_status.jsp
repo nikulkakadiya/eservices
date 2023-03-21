@@ -1,20 +1,4 @@
 <%@include file="check_login.jsp"%>
-<%
-			
-	try{
-			String bookingId=request.getParameter("booking_id");
-			if(bookingId != null){	
-				ps = con.prepareStatement("select * from booking where id=?");
-				ps.setString(1,bookingId);
-				rs = ps.executeQuery();
-
-				if(!rs.next()){	
-				response.sendRedirect("view_booking.jsp");
-				}
-			}
-		}
-		catch(Exception e){}
-%>
 
 
 <!DOCTYPE html>
@@ -47,11 +31,11 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Dashboard <small>Update Booking Status</small>
+					Update Status <small></small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="home.jsp"><i class="fa fa-pencil-square-o"></i> Home</a></li>
-					<li class="active">Update Booking Status</li>
+					<li class="active">Update Status</li>
 				</ol>
 			</section>
 
@@ -60,28 +44,39 @@
 			<!-- /.content-wrapper -->
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">Update Booking Status</h3>
+					<h3 class="box-title"></h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
-
-				<form action="update_booking.jsp" method="POST">
+				<%
+					String mobileNo=request.getParameter("mobile_no");
+				%>
+				<form action="update_user_status.jsp" method="POST">
 					<div class="box-body">
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="booking_id" placeholder="Id" value="<%=rs.getString(1)%>">
-						</div>						
+							<input type="hidden" class="form-control" name="mobileNo" placeholder="Id" value="<%=mobileNo%>">
+						</div>
+
 						<div class="form-group">
-							<label for="exampleInputPassword1">Booking Status</label>
-							<select name="booking_status">
-								<option value="6">Booked</option>
-								<option value="7">Cancel</option>
-							</select>
-						</div>					
+                            <select name="userStatus" required="">
+                              <%
+                              ps = con.prepareStatement("select * from user_status");
+                              rs = ps.executeQuery();       
+                              while(rs.next())
+                                 {
+                                    %>
+                                    <option value="<%=rs.getString(1)%>"><%=rs.getString(2)%></option>
+                                    <%
+                                 }
+                                 %>
+                              </select>
+                           </div>   
+						
 					</div>
 					<!-- /.box-body -->
 
 					<div class="box-footer">
-						<button name="update_booking" type="submit" class="btn btn-primary">Update</button>
+						<button name="update_status" type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</form>
 			</div>

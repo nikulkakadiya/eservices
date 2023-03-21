@@ -1,17 +1,23 @@
-   <%@include file="connection.jsp"%>
+<%@include file="connection.jsp"%>
 <%
 
 String login = request.getParameter("login");
 boolean isCorrectLogin = true;
+boolean isCorrectBlock = true;
+String status="1";
+
 
 if(login!=null)
    {
+
 
       String mobileno = request.getParameter("mobileno").toString();
       String password = request.getParameter("password");
       String userTypeId = request.getParameter("usertype");
 
-      ps = con.prepareStatement("select mobile_no, name, email_id, type from user u inner join user_type ut on u.user_type_id = ut.id where password = ? && mobile_no = ? && user_type_id=?");
+      
+
+      ps = con.prepareStatement("select mobile_no, name, email_id, type, status_id from user u inner join user_type ut on u.user_type_id = ut.id where password = ? && mobile_no = ? && user_type_id=?");
 
       ps.setString(1,password);
       ps.setString(2,mobileno);
@@ -20,20 +26,26 @@ if(login!=null)
       rs = ps.executeQuery();
       if(rs.next())
       {
-         session.setAttribute("name",rs.getString(2));
-         session.setAttribute("mobile",rs.getString(1));
-         session.setAttribute("email",rs.getString(3));
-         session.setAttribute("userType",rs.getString(4));
+         if(status.equals(rs.getString(5))){
 
-         if(session.getAttribute("userType").equals("Service Provider"))
-            response.sendRedirect("profile.jsp");            
-         else
-            response.sendRedirect("service.jsp");
+            session.setAttribute("name",rs.getString(2));
+            session.setAttribute("mobile",rs.getString(1));
+            session.setAttribute("email",rs.getString(3));
+            session.setAttribute("userType",rs.getString(4));
+
+            if(session.getAttribute("userType").equals("Service Provider"))
+               response.sendRedirect("profile.jsp");            
+            else
+               response.sendRedirect("service.jsp");
+         }else{
+            isCorrectBlock = false;
+         }
       }
       else
       {
          isCorrectLogin = false;
-      }     
+      }
+       
    }  
       
    %>
@@ -64,6 +76,17 @@ if(login!=null)
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <%
+               if (!isCorrectBlock) {                  
+            %>
+               <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                Username is blocked.
+              </div>
+            <% 
+               }
+            %>
+            <%
                if (!isCorrectLogin) {                  
             %>
                <div class="alert alert-info alert-dismissible">
@@ -80,7 +103,7 @@ if(login!=null)
             </div>
             <div class="modal-body">
                <div class="register-form">
-                  <form action="#" method="post">
+                  <form action="" method="post">
                      <div class="fields-grid">
                         <div class="styled-input">
                            <input type="text" placeholder="Your Mobile Number" name="mobileno" required minlength="10" maxlength="10">

@@ -30,18 +30,20 @@
       <!--About -->
       <section class="about py-lg-4 py-md-3 py-sm-3 py-3">
          <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <br><br><br><br>
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">About Us</h3>
             <div class="about-innergrid-agile text-center">
-               <h4>Welcome To Our Store</h4>
-               <p class="mb-3"> velit sagittis vehicula. Duis posuere 
-                  ex in mollis iaculis. Suspendisse tincidunt
-                  velit sagittis vehicula. Duis posuere 
-                  velit sagittis vehicula. Duis posuere
-                  ex in mollis iaculis. Suspendisse tincidunt
-                  velit sagittis vehicula. Duis posuere 
+               <h4>Welcome To Our E-Services</h4>
+               <p class="mb-3"> 
+                  E-services is a System which help to Customer to book any service which are available in our system and it also use for service provider, they can add their skill(services) in our system after registering/logging, so those services are available at customer side.
+                  <br><br>
+                  If Customer wants any service, then they have to register/login in our system, after login they can search any service from category provided by the admin, after search service they get list of service provider related to selected service with mobile no and address so customer can make call to him for any further information related to services and book them, customer can also cancel service if they not want service after Booking.
+                  <br><br>
+                  When a customer book any services it will be informed to service provider and service provider contact to that particular customer by address and mobile number, if service provider are not able to solve that particular service then they can cancel service and that will be informed to customer by notification
+
                </p>
-               <div class=" img-toy-w3l-top">
-               </div>
+               <!-- <div class=" img-toy-w3l-top">
+               </div> -->
             </div>
           
          </div>

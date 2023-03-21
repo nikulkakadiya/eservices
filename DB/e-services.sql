@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2023 at 05:54 PM
+-- Generation Time: Mar 21, 2023 at 06:54 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.14
 
@@ -60,6 +60,13 @@ CREATE TABLE `booking` (
   `booking_status_id` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `service_id`, `service_provider_id`, `customer_id`, `date`, `booking_status_id`) VALUES
+('44f17e2f-9837-444c-a438-7279b0ee2b27', '664f3230-b5c8-44e0-bc39-04286b674dfd', '7874634643', '7600338175', '2023-03-20 23:51:02', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -95,7 +102,7 @@ CREATE TABLE `city` (
 --
 
 INSERT INTO `city` (`id`, `name`) VALUES
-(1, 'surt'),
+(1, 'surat'),
 (2, 'rajlot'),
 (3, 'ahemdabad');
 

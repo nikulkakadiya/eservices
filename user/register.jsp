@@ -2,6 +2,7 @@
 <%
 
 boolean isRegister=true;
+boolean isRegister1=false;
 String sub = request.getParameter("sub");
 
 if(sub!=null)
@@ -14,6 +15,14 @@ if(sub!=null)
       
       
       String usertype = request.getParameter("usertype");
+
+      ps = con.prepareStatement("select mobile_no,email_id from user where mobile_no = ? and user_type_id=?");
+      ps.setString(1,mobileno);
+      ps.setString(2,usertype);
+      rs = ps.executeQuery();
+      if(!rs.next())
+      {
+
       ps =con.prepareStatement("insert into user(mobile_no,password,name,email_id,status_id,user_type_id)values(?,?,?,?,1,?)");
       ps.setString(1,mobileno);
       ps.setString(2,password);
@@ -30,6 +39,9 @@ if(sub!=null)
       else
       {
          isRegister=false;
+      }
+      }else{
+         isRegister1=true;
       }
    }
    
@@ -64,12 +76,24 @@ if(sub!=null)
          <div class="modal-dialog" role="document">
             <div class="modal-content">
             <%
+               if (isRegister1) {                  
+            %>
+               <div class="alert alert-info alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-info"></i> Alert!</h4>
+                User Are Registered.
+              </div>
+            <% 
+               }
+            %>
+              
+            <%
                if (!isRegister) {                  
             %>
                <div class="alert alert-info alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <h4><i class="icon fa fa-info"></i> Alert!</h4>
-                Username or password are invalid.
+                User Are Not Registered.
               </div>
             <% 
                }
@@ -79,7 +103,7 @@ if(sub!=null)
                </div>
                <div class="modal-body">
                   <div class="register-form">
-                     <form action="#" method="post">
+                     <form action="" method="post">
                         <div class="fields-grid">
                            <div class="styled-input">
                               <input type="text" placeholder="Mobile Number" name="mobileno" required="">

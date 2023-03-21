@@ -126,7 +126,7 @@ description = fieldValue;
 					Add Data <small>Add Service</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-pencil-square-o"></i> Add Data</a></li>
+					<li><a href="home.jsp"><i class="fa fa-pencil-square-o"></i>Home</a></li>
 					<li class="active">Add Service</li>
 				</ol>
 			</section>

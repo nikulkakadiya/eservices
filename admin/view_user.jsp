@@ -66,7 +66,7 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 									<th>E-Mail Id</th>
 									<th>Status</th>
 									<th>User Type</th>
-									<th>Action</th>
+									<!-- <th>Action</th> -->
 								</tr>
 							</thead>
 							<tbody>
@@ -80,18 +80,19 @@ ps = con.prepareStatement("SELECT mobile_no,name,email_id,status,type FROM user 
 											<td><%=rs.getString(1)%></td>
 											<td><%=rs.getString(2)%></td>
 											<td><%=rs.getString(3)%></td>
-											<td><span class="label label-success"><%=rs.getString(4)%></span></td>
+
+											<td><a href="edit_user_status.jsp?mobile_no=<%=rs.getString(1)%>" class="label label-success"><%=rs.getString(4)%></a></td>
 											<td><%=rs.getString(5)%></td>
-											<td class="center">
-												<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+											<!-- <td class="center"> -->
+												<!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
 													<i class="glyphicon glyphicon-edit icon-white"></i> Edit
 												</button>
 												<a class="btn btn-danger"
-												href="/admin/delete_city?city_id=${city.cityId}"> <i
+												href="edit_user_status.jsp?service_id=<%=rs.getString(1)%>"> <i
 												class="glyphicon glyphicon-trash icon-white"></i> Delete
-											</a>
+											</a> -->
 
-										</td>
+										<!-- </td> -->
 									</tr>
 									<%
 								}
