@@ -98,13 +98,18 @@ try{
                                  <input type="text" name="line_2" value="<%=rs.getString(2)%>" class="form-control" id="inputAddress2">
                               </div>
                               <div class="form-group">
-                                 <label for="inputState">City</label>
+                                 <label for="inputState">City</label>           
                                  <select name="city_id" id="inputState" class="form-control">
-                                    <option value="1">surat</option>
-                                    <option value="2">Rajkot</option>
-                                    <option value="3">Ahemdabad</option>
-                                    <option value="4">Baroda</option>
+                                <%
+                                  ps1 = con.prepareStatement("select * from city");
+
+                                  rs1=ps1.executeQuery();
+                                  while(rs1.next()){
+                                %>
+                                    <option value="<%=rs1.getString(1)%>"><%=rs1.getString(2)%></option>
+                                <%}%>
                                  </select>
+
                               </div>
                               <div class="form-group">
                                  <label for="inputZip">Zip</label>

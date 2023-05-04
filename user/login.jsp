@@ -106,7 +106,7 @@ if(login!=null)
                   <form action="" method="post">
                      <div class="fields-grid">
                         <div class="styled-input">
-                           <input type="text" placeholder="Your Mobile Number" name="mobileno" required minlength="10" maxlength="10">
+                           <input type="text" placeholder="Your Mobile Number" name="mobileno" pattern="[1-9][0-9]{9}" title="Enter valid number 10 digit" required minlength="10" maxlength="10">
                         </div>                        
                         <div class="styled-input">
                            <input type="password" placeholder="password" name="password" required>
@@ -130,7 +130,7 @@ if(login!=null)
                   </form>
                </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer">               
                <button type="button" class="btn btn-secondary" ata-dismiss="modal"><a href="register.jsp">Register</a></button>
             </div>
          </div>

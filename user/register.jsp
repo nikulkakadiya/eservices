@@ -13,7 +13,6 @@ if(sub!=null)
       String email = request.getParameter("email");
       //String num=request.getParameter("num"); -->
       
-      
       String usertype = request.getParameter("usertype");
 
       ps = con.prepareStatement("select mobile_no,email_id from user where mobile_no = ? and user_type_id=?");
@@ -42,7 +41,7 @@ if(sub!=null)
       }
       }else{
          isRegister1=true;
-      }
+      } 
    }
    
    %>
@@ -106,7 +105,7 @@ if(sub!=null)
                      <form action="" method="post">
                         <div class="fields-grid">
                            <div class="styled-input">
-                              <input type="text" placeholder="Mobile Number" name="mobileno" required="">
+                              <input type="text" placeholder="Mobile Number" name="mobileno" pattern="[1-9][0-9]{9}" title="Enter valid number 10 digit" required="">
                            </div>
                            <div class="styled-input">
                               <input type="password" placeholder="password" name="password" required="">

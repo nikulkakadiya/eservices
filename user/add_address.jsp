@@ -148,12 +148,16 @@ try{
                               </div>
                               <div class="form-group col-md-6">
                                  <label for="inputState">City</label>
-                                 <select id="inputState" name="city_id" class="form-control">
-                                    <option value="1">surat</option>
-                                    <option value="2">Rajkot</option>
-                                    <option value="3">Ahemdabad</option>
-                                    <option value="4">Baroda</option>
-                                 </select>                 
+                                  <select name="city_id" id="inputState" class="form-control">
+                                <%
+                                  ps1 = con.prepareStatement("select * from city");
+
+                                  rs1=ps1.executeQuery();
+                                  while(rs1.next()){
+                                %>
+                                    <option value="<%=rs1.getString(1)%>"><%=rs1.getString(2)%></option>
+                                <%}%>
+                                 </select>
                                  </div>   
                                  <div class="form-group col-md-6">
                                     <label for="inputZip">Zip</label>
